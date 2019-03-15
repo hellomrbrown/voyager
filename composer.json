@@ -12,6 +12,10 @@
         {
             "name": "Tony Lea",
             "email": "tony.lea@thecontrolgroup.com"
+        },
+        {
+            "name": "Sergey",
+            "email": "sergey@hellomrbrown.ru"
         }
     ],
     "require": {
