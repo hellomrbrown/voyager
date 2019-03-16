@@ -118,6 +118,14 @@ class VoyagerMediaController extends Controller
     {
         $source = $request->source;
         $destination = $request->destination;
+        if (strpos($destination, '@up-') === 0) {
+            $numberOfLevelsUp = $destination[4];
+            $ups = '';
+            for ($i = 0; $i < $numberOfLevelsUp; $i++) {
+                $ups .= '../';
+            }
+            $destination = str_replace('@up-'.$numberOfLevelsUp, $ups, $destination);
+        }
         $folderLocation = $request->folder_location;
         $success = false;
         $error = '';
@@ -188,7 +196,7 @@ class VoyagerMediaController extends Controller
             ];
 
             if (in_array($request->file->getMimeType(), $allowedImageMimeTypes)) {
-                $file = $request->file->store($request->upload_path, $this->filesystem);
+                $file = $request->file->storeAs($request->upload_path, $request->file->getClientOriginalName(), $this->filesystem);
 
                 $image = Image::make($realPath.$file);
 
