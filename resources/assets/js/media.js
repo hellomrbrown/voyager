@@ -9,6 +9,13 @@ module.exports = function(){
 		  		directories: [],
 			},
 			methods: {
+				times: function(n, string) {
+					var finalString = '';
+					for (var i = 0; i < n; i++) {
+						finalString += string;
+					}
+					return finalString;
+				},
 				selectedFileIs: function(val){
 					if(typeof(this.selected_file.type) != 'undefined' && this.selected_file.type.includes(val)){
 						return true;

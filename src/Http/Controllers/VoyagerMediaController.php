@@ -118,14 +118,6 @@ class VoyagerMediaController extends Controller
     {
         $source = $request->source;
         $destination = $request->destination;
-        if (strpos($destination, '@up-') === 0) {
-            $numberOfLevelsUp = $destination[4];
-            $ups = '';
-            for ($i = 0; $i < $numberOfLevelsUp; $i++) {
-                $ups .= '../';
-            }
-            $destination = str_replace('@up-'.$numberOfLevelsUp, $ups, $destination);
-        }
         $folderLocation = $request->folder_location;
         $success = false;
         $error = '';

@@ -213,8 +213,8 @@
                                 <div class="modal-body">
                                     <h4>{{ __('voyager.media.destination_folder') }}</h4>
                                     <select id="move_folder_dropdown">
-                                        <template v-for="folder in folders.length">
-                                            <option :value="'@up-' + folder">вверх на @{{ folder }} уровней</option>
+                                        <template v-if="folders.length">
+                                            <option value="/../">../</option>
                                         </template>
                                         <template v-for="dir in directories">
                                             <option :value="dir">@{{ dir }}</option>
